@@ -31,6 +31,7 @@ def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('a', help='first file to compare hash of')
 	parser.add_argument('b', help='second file to compare hash of')
+	parser.add_argument('-v', '--verbose', action='store_true', help='show verbose output')
 	args = parser.parse_args()
 	
 	a_hash = hash_file(args.a)
@@ -39,7 +40,7 @@ def main():
 	print(f'a_hash: {a_hash}')
 	print(f'b_hash: {b_hash}')
 	
-	compare_hash_bits(a_hash, b_hash, verbose=True)
+	compare_hash_bits(a_hash, b_hash, verbose=args.verbose)
 
 
 if __name__ == '__main__':
